@@ -1,89 +1,99 @@
 # Student-Management-bashScripting
-This project is a terminal-based Student Record Management System implemented entirely using Bash scripting. It provides a lightweight and efficient way to manage student academic records, including their marks, grades, and GPA. The system includes user authentication, data persistence, and multiple features tailored for both teacher and student roles. It is designed to operate in a UNIX-like environment and uses plain text files for data storage, avoiding any reliance on external databases or complex software dependencies.
 
-Features
-1. User Authentication
-Two types of users: teacher and student.
+This project is a terminal-based Student Record Management System implemented entirely using **Bash scripting**. It provides a lightweight and efficient way to manage student academic records, including their marks, grades, and GPA. The system includes **user authentication**, **data persistence**, and multiple features tailored for both **teacher and student roles**. It is designed to operate in a UNIX-like environment and uses plain text files for data storage, avoiding any reliance on external databases or complex software dependencies.
 
-Each user has hardcoded credentials.
+## Table of Contents
 
-Only teachers can modify data; students have read-only access to their records.
+* [System Features](#system-features)
 
-2. Data Persistence
-All student records are saved in a plain text file (students.txt) using a pipe-separated format.
+  * [User Authentication](#user-authentication)
+  * [Data Persistence](#data-persistence)
+  * [Student Record Management (Teacher Functions)](#student-record-management-teacher-functions)
+  * [Student Access (Student Functions)](#student-access-student-functions)
+  * [Grade and GPA Calculation](#grade-and-gpa-calculation)
+  * [Input Validation](#input-validation)
+* [Technologies Used](#technologies-used)
+* [Project Structure](#project-structure)
+* [How to Run](#how-to-run)
+* [Benefits](#benefits)
 
-The system loads data from the file at startup and allows saving updated data during runtime.
+## System Features
 
-3. Student Record Management (Teacher Functions)
-Add Student: Input roll number, name, and marks for three subjects (OS, DB, SDA). The system calculates grades and GPA automatically.
+### User Authentication
 
-Delete Student: Remove a student record using the roll number.
+* Two types of users: **teacher** and **student**.
+* Each user has hardcoded credentials.
+* Only teachers can modify data; students have read-only access to their records.
 
-Update Marks: Change a student’s marks and update grades and GPA accordingly.
+### Data Persistence
 
-View Student: View complete details of a single student including marks, grades, and GPA.
+* All student records are saved in a plain text file (`students.txt`) using a pipe-separated format.
+* The system loads data from the file at startup and allows saving updated data during runtime.
 
-Display All Students: Print a tabular view of all student records.
+### Student Record Management (Teacher Functions)
 
-Sort by GPA: Sort and display students in ascending or descending order of GPA.
+* **Add Student**: Input roll number, name, and marks for three subjects. The system calculates grades and GPA automatically.
+* **Delete Student**: Remove a student record using the roll number.
+* **Update Marks**: Change a student’s marks and update grades and GPA accordingly.
+* **View Student**: View complete details of a single student including marks, grades, and GPA.
+* **Display All Students**: Print a tabular view of all student records.
+* **Sort by GPA**: Sort and display students in ascending or descending order of GPA.
+* **List Passed & Failed**: Separate and display students based on a passing GPA threshold.
 
-List Passed & Failed: Separate and display students based on a passing GPA threshold.
+### Student Access (Student Functions)
 
-4. Student Access (Student Functions)
-View Grades: Allows a student to view their marks, grades, and GPA.
+* **View Grades**: Allows a student to view their marks, grades, and GPA.
+* **View GPA Only**: Displays only the GPA for a specific roll number.
 
-View GPA Only: Displays only the GPA for a specific roll number.
+### Grade and GPA Calculation
 
-5. Grade and GPA Calculation
-Grades are calculated based on a fixed scale:
+* Grades are calculated based on a fixed scale:
 
-A: 90+
+  * **A**: 90+
+  * **B**: 80–89
+  * **C**: 70–79
+  * **D**: 60–69
+  * **F**: Below 60
+* GPA is computed using grade-to-point mapping and credit hour weighting.
 
-B: 80–89
+### Input Validation
 
-C: 70–79
+* All numeric fields (marks and roll numbers) are validated to ensure non-negative integers.
+* Prevents duplication of student roll numbers.
+* Proper handling of missing or invalid input.
 
-D: 60–69
+## Technologies Used
 
-F: Below 60
+* **Bash scripting** (`.sh`)
+* **bc** for floating point calculations
+* **column** for formatting table outputs
+* **File I/O** for data storage and retrieval
 
-GPA is computed using grade-to-point mapping and credit hour weighting.
+## Project Structure
 
-6. Input Validation
-All numeric fields (marks and roll numbers) are validated to ensure non-negative integers.
+* `students.txt`: File used to persist student data.
+* `script.sh`: Main Bash script file containing all logic.
+* No external dependencies or packages required.
 
-Prevents duplication of student roll numbers.
+## How to Run
 
-Proper handling of missing or invalid input.
+1. Open a terminal in a UNIX/Linux environment.
+2. Make the script executable:
 
-Technologies Used
-Bash scripting (.sh)
+   ```bash
+   chmod +x script.sh
+   ```
+3. Run the script:
 
-bc for floating point calculations
+   ```bash
+   ./script.sh
+   ```
 
-column for formatting table outputs
+## Benefits
 
-File I/O for data storage and retrieval
+* Lightweight and efficient
+* Terminal-based interface for simplicity and speed
+* Secure, role-based access
+* Completely self-contained—no need for external databases or packages
 
-Project Structure
-students.txt: File used to persist student data.
-
-script.sh: Main Bash script file containing all logic.
-
-No external dependencies or packages required.
-
-How to Run
-Open a terminal in a UNIX/Linux environment.
-
-Make the script executable:
-
-bash
-Copy
-Edit
-chmod +x script.sh
-Run the script:
-
-bash
-Copy
-Edit
-./script.sh
+This project demonstrates how powerful and practical pure **Bash scripting** can be, even for building complete data management systems—simple, effective, and entirely terminal-based.
